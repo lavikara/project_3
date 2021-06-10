@@ -180,59 +180,36 @@ Summary
 > Final cost:          0.03980061 ETH
 ```
 
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
+### Test Contract
 
 ```
-cd project-6
-npm install
-```
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
 
-Launch Ganache:
+ganache-cli accounts used here...
+Contract Owner: accounts[0]  0xc3f09DC8ADb9c6bA88b42cde06D181bFD6AbF380
+Farmer: accounts[1]  0x3b3857edFfc523702A7476CCD40168591618Dac3
+Distributor: accounts[2]  0x6D6E887C54098cfDE7935ce642E7D5aE0B0Cc866
+Retailer: accounts[3]  0x4d31F9bdbAE1740b9FdA0c6456f3BDC8e48d9b31
+Consumer: accounts[4]  0xE266b6c354cE3Fa9E8432FbD69284BEb4C9eD79b
 
-```
-ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
-```
 
-Your terminal should look something like this:
+  Contract: SupplyChain
+    ✓ Adds role to contract (180ms)
+    ✓ Testing smart contract function harvestItem() that allows a farmer to harvest coffee (137ms)
+    ✓ Testing smart contract function processItem() that allows a farmer to process coffee (101ms)
+    ✓ Testing smart contract function packItem() that allows a farmer to pack coffee (82ms)
+    ✓ Testing smart contract function sellItem() that allows a farmer to sell coffee (82ms)
+    ✓ Testing smart contract function buyItem() that allows a distributor to buy coffee (87ms)
+    ✓ Testing smart contract function shipItem() that allows a distributor to ship coffee (69ms)
+    ✓ Testing smart contract function receiveItem() that allows a retailer to mark coffee received (81ms)
+    ✓ Testing smart contract function purchaseItem() that allows a consumer to purchase coffee (76ms)
+    ✓ Testing smart contract function fetchItemBufferOne() that allows anyone to fetch item details from blockchain (41ms)
+    ✓ Testing smart contract function fetchItemBufferTwo() that allows anyone to fetch item details from blockchain (38ms)
 
-![truffle test](images/ganache-cli.png)
 
-In a separate terminal window, Compile smart contracts:
-
-```
-truffle compile
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
-
-This will create the smart contract artifacts in folder ```build\contracts```.
-
-Migrate smart contracts to the locally running blockchain, ganache-cli:
-
-```
-truffle migrate
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_migrate.png)
-
-Test smart contracts:
-
-```
-truffle test
-```
-
-All 10 tests should pass.
-
-![truffle test](images/truffle_test.png)
-
-In a separate terminal window, launch the DApp:
-
-```
-npm run dev
+  11 passing (1s)
 ```
 
 ## Built With
