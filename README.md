@@ -33,6 +33,10 @@ The DApp User Interface when running should look like...
     "web3": "^1.3.6"
   }
 ```
+I used truffle for developing my DApp locally
+I used truffle assertions for testing my contract
+I used truffle hdwallet provider as my provider when deploying my contract
+I used web3 to interact with my contract
 
 ### Installing
 
