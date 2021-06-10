@@ -91,6 +91,12 @@ contract("SupplyChain", function (accounts) {
     assert.equal(resultBufferOne[1], upc, "Error: Invalid item UPC");
 
     assert.equal(
+      resultBufferOne[2],
+      originFarmerID,
+      "Error: Invalid distributor ID"
+    );
+
+    assert.equal(
       resultBufferOne[3],
       originFarmerID,
       "Error: Missing or Invalid originFarmerID"
@@ -137,7 +143,7 @@ contract("SupplyChain", function (accounts) {
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now Processed
     assert.equal(resultBufferTwo[5], 1, "Error: Invalid item state");
   });
 
@@ -155,7 +161,7 @@ contract("SupplyChain", function (accounts) {
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now Packed
     assert.equal(resultBufferTwo[5], 2, "Error: Invalid item state");
   });
 
@@ -173,7 +179,7 @@ contract("SupplyChain", function (accounts) {
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now forsale and price is set to 1ETH
     assert.equal(
       resultBufferTwo[4],
       productPrice,
@@ -195,11 +201,12 @@ contract("SupplyChain", function (accounts) {
     truffleAssert.eventEmitted(buyItem, "Sold");
 
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
+    const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc);
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now sold and owner is now the distributor
     assert.equal(
-      resultBufferTwo[6],
+      resultBufferOne[2],
       distributorID,
       "Error: Invalid distributor ID"
     );
@@ -220,7 +227,7 @@ contract("SupplyChain", function (accounts) {
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now shipped
     assert.equal(resultBufferTwo[5], 5, "Error: Invalid item state");
   });
 
@@ -234,9 +241,15 @@ contract("SupplyChain", function (accounts) {
     truffleAssert.eventEmitted(received, "Received");
 
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
+    const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc);
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now received and owner is now retailer
+    assert.equal(
+      resultBufferOne[2],
+      retailerID,
+      "Error: Invalid distributor ID"
+    );
     assert.equal(resultBufferTwo[5], 6, "Error: Invalid item state");
   });
 
@@ -251,9 +264,15 @@ contract("SupplyChain", function (accounts) {
 
     truffleAssert.eventEmitted(purchased, "Purchased");
     // Retrieve the just now saved item from blockchain by calling function fetchItem()
+    const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc);
     const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
 
-    // Verify the result set
+    // Verify the state is now purchased and customer is the new owner
+    assert.equal(
+      resultBufferOne[2],
+      consumerID,
+      "Error: Invalid distributor ID"
+    );
     assert.equal(resultBufferTwo[5], 7, "Error: Invalid item state");
   });
 
