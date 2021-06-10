@@ -23,12 +23,15 @@ The DApp User Interface when running should look like...
 
 ![truffle test](images/Class_Diagram.png)
 
-### Prerequisites
-
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+### Libaries
 
 ```
-Give examples (to be clarified)
+  "dependencies": {
+    "truffle": "^5.3.8",
+    "truffle-assertions": "^0.9.2",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.3.6"
+  }
 ```
 
 ### Installing
