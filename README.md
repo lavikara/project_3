@@ -17,11 +17,11 @@ The DApp User Interface when running should look like...
 
 ![truffle test](images/Activity_diagram.png)
 
-![truffle test](images/ftc_farm_details.png)
+![truffle test](images/Sequence_diagram.png)
 
-![truffle test](images/ftc_product_details.png)
+![truffle test](images/State_Diagram.png)
 
-![truffle test](images/ftc_transaction_history.png)
+![truffle test](images/Class_Diagram.png)
 
 ### Prerequisites
 
