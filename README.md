@@ -15,7 +15,7 @@ The DApp User Interface when running should look like...
 
 ## Requirement 1 (UML Daiagrams)
 
-![truffle test](images/ftc_product_overview.png)
+![truffle test](images/Activity diagram.png)
 
 ![truffle test](images/ftc_farm_details.png)
 
