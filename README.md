@@ -13,9 +13,15 @@ The DApp User Interface when running should look like...
 ![truffle test](images/ftc_transaction_history.png)
 
 
-## Getting Started
+## Requirement 1 (UML Daiagrams)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+![truffle test](images/Activity_diagram.png)
+
+![truffle test](images/ftc_farm_details.png)
+
+![truffle test](images/ftc_product_details.png)
+
+![truffle test](images/ftc_transaction_history.png)
 
 ### Prerequisites
 
